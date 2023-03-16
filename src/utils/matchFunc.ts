@@ -1,8 +1,8 @@
-export const matchFunc = (value:number,quantity:number):number => {
+export const matchFunc = (value:string,quantity:number):string => {
     if (quantity === 1){
-        return Math.floor(value * 100) / 100
+        return value
     }else {
-        const result = value * quantity
-        return Math.floor(result * 100) / 100
+        const result = +value * quantity
+        return result.toFixed(2)
     }
 }

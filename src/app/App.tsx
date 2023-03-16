@@ -14,7 +14,7 @@ function App() {
     const dispatch = useAppDispatch()
 
 
-    const setPrice = (id: string, value: {totalPrice:number,curr:ICurrency}) => {
+    const setPrice = (id: string, value: {totalPrice:string,curr:ICurrency}) => {
         dispatch(setTotalPriceAC(value))
     }
 
