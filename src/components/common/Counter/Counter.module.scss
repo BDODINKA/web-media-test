@@ -17,6 +17,7 @@
     color: $text-color-primary;
     &:disabled{
       background: rgba(140, 138, 138, 0.2);
+      pointer-events: none;
     }
   }
   .counter_window{
