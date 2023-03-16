@@ -1,0 +1,8 @@
+@import 'src/_variables';
+@import 'src/_mixins';
+
+.wrapper{
+  font-family: 'Inter',sans-serif;
+  @include Text-FS-FW-LH($fs-third,500,$lineH-third);
+  color: $text-color-primary;
+}

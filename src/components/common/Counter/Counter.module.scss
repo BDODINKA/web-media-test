@@ -1,0 +1,29 @@
+@import "src/variables";
+@import "src/mixins";
+
+.wrapper_counter{
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+
+
+  .counter_btn{
+    border: 1px solid $border-color-secondary;
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    background: none;
+    cursor: pointer;
+    color: $text-color-primary;
+    &:disabled{
+      background: rgba(140, 138, 138, 0.2);
+    }
+  }
+  .counter_window{
+    pointer-events: none;
+    font-family: 'Inter',sans-serif;
+    @include Text-FS-FW-LH($fs-third,500,$lineH-third);
+    color: $text-color-primary;
+  }
+
+}

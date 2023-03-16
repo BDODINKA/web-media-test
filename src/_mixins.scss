@@ -1,0 +1,13 @@
+@import "variables";
+
+@mixin Text-FS-FW-LH($FS:$fs-primary, $FW:400, $LH:$lineH-primary) {
+  font-weight: $FW;
+  font-size: $FS;
+  line-height: $LH;
+}
+
+@mixin Flex-Center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

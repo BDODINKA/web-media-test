@@ -1,0 +1,8 @@
+@import 'src/_variables';
+@import 'src/_mixins';
+
+.small_title{
+  font-family: 'Inter',sans-serif;
+  @include Text-FS-FW-LH();
+  color: $text-color-primary;
+}

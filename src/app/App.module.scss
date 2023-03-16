@@ -1,0 +1,6 @@
+@import "./src/mixins";
+
+.main {
+  height: 100vh;
+  @include Flex-Center();
+}

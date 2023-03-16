@@ -1,0 +1,62 @@
+@import 'src/_variables';
+@import 'src/_mixins';
+.wrapper {
+  display: flex;
+
+  .switch{
+    cursor: pointer;
+    width: 141px;
+    height: 36px;
+    background: $bg-color-primary;
+    border: 1px solid $border-color-primary;
+    border-radius: 6px;
+    position: relative;
+    transition: background-color 0.2s;
+    padding: 3px;
+
+    .switch_checkbox {
+      height: 0;
+      width: 0;
+      position: absolute;
+      visibility: hidden;
+    }
+
+    .switch_labels {
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 0;
+      height: 100%;
+
+      .switch_labels_colored, .switch_labels_notColored {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 66px;
+        height: 30px;
+        z-index: 10;
+        border-radius: 4px;
+        color: $text-color-primary;
+        @include Text-FS-FW-LH(13px,600,$lineH-four);
+        &:first-child {
+          left: 0;
+        }
+
+        &:last-child {
+          right: 0;
+        }
+      }
+
+      .switch_labels_colored {
+        background: $bg-color-secondary;
+      }
+
+      .switch_labels_notColored {
+        background: transparent;
+      }
+    }
+  }
+}
+
+
