@@ -8,10 +8,11 @@ import {Counter} from "../../components/common/Counter/Counter";
 import {matchFunc} from "../../utils/matchFunc";
 import {ICurrency} from "../../interface/currencyInterface";
 
-export const Card: FC<{ nftPrice: string, totalPrice: string, currency:ICurrency, setPrice: (value: {totalPrice:string,curr:ICurrency }) => void }> = ({
+export const Card: FC<{ nftPrice: string, totalPrice: string, currency:ICurrency, setPrice: (value: {totalPrice:string,curr:ICurrency }) => void,setCurrency:(value:ICurrency)=>void }> = ({
                                                                                                                             currency,
                                                                                                                             nftPrice,
-                                                                                                                            setPrice
+                                                                                                                            setPrice,
+    setCurrency
                                                                                                                         }) => {
     const price= (+nftPrice).toFixed(2)
 
@@ -27,6 +28,10 @@ export const Card: FC<{ nftPrice: string, totalPrice: string, currency:ICurrency
         const totalPrice = matchFunc(price, count)
         setTotalPrice(totalPrice)
     }, [count,price])
+
+    useEffect(() => {
+        setCurrency(curr)
+    }, [curr])
 
     const setPriceHandler = () => {
         setPrice({totalPrice, curr})

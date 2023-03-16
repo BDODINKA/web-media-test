@@ -19,9 +19,18 @@ const slice = createSlice({
             state.totalPrice = action.payload.totalPrice
             state.currency = action.payload.curr
         },
+        setCurrencyAC: (state, action: PayloadAction<{curr:ICurrency }>) => {
+            state.currency = action.payload.curr
+            if(action.payload.curr === 'ETH'){
+                state.OneNNTPrice= (+state.OneNNTPrice/1962).toString()
+            }else {
+                state.OneNNTPrice= (+state.OneNNTPrice).toString()
+            }
+
+        },
     }
 })
 
 export const cardReducer = slice.reducer
 
-export const {setTotalPriceAC} = slice.actions
+export const {setTotalPriceAC,setCurrencyAC} = slice.actions
