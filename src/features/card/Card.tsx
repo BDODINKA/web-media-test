@@ -30,7 +30,10 @@ export const Card: FC<{ nftPrice: string, totalPrice: string, currency:ICurrency
     }, [count,price])
 
     useEffect(() => {
-        setCurrency(curr)
+        if(curr !== currency){
+            setCurrency(curr)
+        }
+
     }, [curr])
 
     const setPriceHandler = () => {

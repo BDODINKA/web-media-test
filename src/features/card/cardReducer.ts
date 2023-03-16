@@ -23,10 +23,10 @@ const slice = createSlice({
             state.currency = action.payload.curr
             if(action.payload.curr === 'ETH'){
                 state.OneNNTPrice= (+state.OneNNTPrice/1962).toString()
-            }else {
-                state.OneNNTPrice= (+state.OneNNTPrice).toString()
             }
-
+            if(action.payload.curr === '$') {
+                state.OneNNTPrice = (+state.OneNNTPrice*1962).toString()
+            }
         },
     }
 })
