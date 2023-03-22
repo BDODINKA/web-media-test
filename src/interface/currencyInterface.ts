@@ -1,1 +1,1 @@
-export type ICurrency = "$"|"ETH"
+export type ICurrency = 'USD' | 'ETH'

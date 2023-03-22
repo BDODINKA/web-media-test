@@ -14,7 +14,7 @@ const slice = createSlice({
   initialState: {
     OneNNTPrice: '45.41',
     totalPrice: '',
-    currency: '$',
+    currency: 'USD',
   } as CardStateType,
   reducers: {
     setTotalPriceAC: (state, action: PayloadAction<{ totalPrice: string; curr: ICurrency }>) => {
@@ -26,7 +26,7 @@ const slice = createSlice({
       if (action.payload.curr === 'ETH') {
         state.OneNNTPrice = converterETHtoUSD(state.OneNNTPrice, action.payload.curr)
       }
-      if (action.payload.curr === '$') {
+      if (action.payload.curr === 'USD') {
         state.OneNNTPrice = converterETHtoUSD(state.OneNNTPrice, action.payload.curr)
       }
     },

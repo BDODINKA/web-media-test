@@ -1,8 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
 
 import { cardReducer } from '../features/card/cardReducer'
+
+import { appReducer } from './appReducer'
 export const store = configureStore({
   reducer: {
+    app: appReducer,
     card: cardReducer,
   },
 })

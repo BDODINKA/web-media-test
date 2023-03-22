@@ -46,7 +46,7 @@ export const Card: FC<{
     <div className={style.wrapper}>
       <div className={style.firstBlock}>
         <SmallTitle>{'Currency:'}</SmallTitle>
-        <SwitchToggle curr={curr} handleToggle={setCurr} titleBtn={['ETH', 'USD']} />
+        <SwitchToggle handleToggle={setCurr} titleBtn={['ETH', 'USD']} />
       </div>
       <div className={style.secondBlock}>
         <SmallTitle>{'One NFT price:'}</SmallTitle>

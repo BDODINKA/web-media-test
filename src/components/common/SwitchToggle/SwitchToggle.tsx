@@ -14,7 +14,7 @@ export const SwitchToggle: FC<{
     if (toggle) {
       handleToggle(titleBtn[0] as ICurrency)
     } else {
-      handleToggle('$' as ICurrency)
+      handleToggle(titleBtn[1] as ICurrency)
     }
   }, [toggle, handleToggle, titleBtn])
 

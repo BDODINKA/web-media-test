@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { Card } from '../features/card/Card'
 import { setCurrencyAC, setTotalPriceAC } from '../features/card/cardReducer'
@@ -7,6 +7,7 @@ import { useAppDispatch } from '../utils/hooks/useAppDispatch'
 import { useAppSelector } from '../utils/hooks/useAppSelector'
 
 import style from './App.module.scss'
+import { setAppState } from './appReducer'
 
 function App() {
   const nftPrice = useAppSelector(state => state.card.OneNNTPrice)
@@ -14,6 +15,10 @@ function App() {
   const currency = useAppSelector(state => state.card.currency)
 
   const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(setAppState())
+  }, [])
 
   const setPrice = (id: string, value: { totalPrice: string; curr: ICurrency }) => {
     dispatch(setTotalPriceAC(value))
