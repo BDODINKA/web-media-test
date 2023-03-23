@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 
+import Spinner from '../components/common/Spinner/Spinner'
 import { Card } from '../features/card/Card'
 import { setCurrencyAC, setTotalPriceAC } from '../features/card/cardReducer'
 import { ICurrency } from '../interface/currencyInterface'
@@ -13,19 +14,26 @@ function App() {
   const nftPrice = useAppSelector(state => state.card.OneNNTPrice)
   const totalPrice = useAppSelector(state => state.card.totalPrice)
   const currency = useAppSelector(state => state.card.currency)
+  const exchangeRates = useAppSelector(state => state.app.exchangeRates)
+  const error = useAppSelector(state => state.app.error)
+  const request = useAppSelector(state => state.app.request)
 
   const dispatch = useAppDispatch()
 
   useEffect(() => {
     dispatch(setAppState())
-  }, [])
+  }, [currency])
 
   const setPrice = (id: string, value: { totalPrice: string; curr: ICurrency }) => {
     dispatch(setTotalPriceAC(value))
   }
   const setCurrency = (id: string, value: ICurrency) => {
-    dispatch(setCurrencyAC({ curr: value }))
+    dispatch(setCurrencyAC({ curr: value, exchangeRates }))
   }
+
+  if (request) return <Spinner />
+
+  if (error) return <div>{error}</div>
 
   return (
     <main className={style.main}>
