@@ -1,16 +1,3 @@
-import { ICurrency } from '../interface/currencyInterface'
-
-export const converterETHtoUSD = (value: string, currency: ICurrency): string => {
-  switch (currency) {
-    case 'USD': {
-      return (+value * 1962.8).toString()
-    }
-
-    case 'ETH': {
-      return (+value / 1962.8).toString()
-    }
-
-    default:
-      return ''
-  }
+export const converterETHtoUSD = (value: string, exchangeRates: number): string => {
+  return (+value * exchangeRates).toString()
 }

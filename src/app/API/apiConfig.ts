@@ -10,7 +10,7 @@ const instance = axios.create({
 })
 
 export const api = {
-  get: (currency: { val: ICurrency; val2: ICurrency }) =>
+  get: (currency: { val: any; val2: ICurrency }) =>
     instance.get('price', {
       params: {
         fsym: currency.val,
