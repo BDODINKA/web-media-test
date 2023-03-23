@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 
-import Spinner from '../components/common/Spinner/Spinner'
 import { Card } from '../features/card/Card'
 import { setCurrencyAC, setTotalPriceAC } from '../features/card/cardReducer'
 import { ICurrency } from '../interface/currencyInterface'
@@ -16,7 +15,6 @@ function App() {
   const currency = useAppSelector(state => state.card.currency)
   const exchangeRates = useAppSelector(state => state.app.exchangeRates)
   const error = useAppSelector(state => state.app.error)
-  const request = useAppSelector(state => state.app.request)
 
   const dispatch = useAppDispatch()
 
@@ -31,7 +29,7 @@ function App() {
     dispatch(setCurrencyAC({ curr: value, exchangeRates }))
   }
 
-  if (request) return <Spinner />
+  // if (request) return <Spinner />
 
   if (error) return <div>{error}</div>
 
